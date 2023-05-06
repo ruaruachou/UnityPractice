@@ -23,8 +23,11 @@ public class CapsualePlayerContral : MonoBehaviour
     }
     private void Movement(float hor, float ver)
     {
+        //定义方向
         Quaternion dir = Quaternion.LookRotation(new Vector3(hor, 0, ver));//（1，0，0）为红轴正1，（0，0，1）为黄轴正1，刚好与GetAxis的值对应
+        //转向
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation, dir, Time.deltaTime*rotateSpeed);
+        //向正前方移动
         this.transform.Translate(0,0,Time.deltaTime*moveSpeed);
     }
 }
